@@ -1,71 +1,55 @@
 <header class="main-header">
-    <div class="top-bar">
+
+    <!-- Top Bar (سبک و سریع) -->
+    <div class="top-bar bg-dark text-white py-2">
         <div class="container">
-            <div class="top-bar-content">
-                <div class="language-switch">
-                    <a href="#" class="active">فارسی</a>
-                    <a href="#">English</a>
+            <div class="d-flex justify-content-between align-items-center small">
+                <div>
+                    <a href="#" class="text-white me-3 text-decoration-none">English</a>
+                    <span class="text-white-50">{{ verta()->format('Y/m/d') }} • {{ verta()->format('H:i') }}</span>
                 </div>
-                <div class="date-time">
-                    {{ verta()->format('l d F Y') }} | {{ verta()->format('H:i') }}
+                <div class="d-flex gap-2">
+                    <a href="{{ route('login') }}" class="btn btn-sm btn-light">ورود</a>
+                    <a href="{{ route('pre-register') }}" class="btn btn-sm btn-warning">پیش‌نام</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="main-nav">
+    <!-- Main Header -->
+    <div class="header-main py-3 text-white" style="background: linear-gradient(135deg, #0a2a5e 0%, #1e4a8c 100%);">
         <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <img src="{{ asset('storage/images/logo.png') }}" alt="هنرستان هزاره صنعت">
-                    <div class="logo-text">
-                        <h1>هنرستان هزاره صنعت</h1>
-                        <p>اولین هنرستان جوار صنعت غرب کشور</p>
-                    </div>
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-4 text-center text-lg-start">
+                    <img src="{{ asset('storage/images/logo-left.png') }}" alt="لوگو" loading="lazy" style="max-height: 68px;">
                 </div>
-
-                <div class="search-box">
-                    <form action="{{ url('/search') }}" method="GET">
-                        <input type="text" name="q" placeholder="جستجو در سایت..." value="{{ request('q') }}">
-                        <button type="submit"><i class="fas fa-search"></i></button>
-                    </form>
+                <div class="col-lg-6 col-4 text-center">
+                    <h1 class="h3 fw-bold mb-1">هنرستان هزاره صنعت</h1>
+                    <p class="small mb-0 opacity-90">اولین هنرستان جوار صنعت غرب کشور</p>
                 </div>
-
-                <div class="header-actions">
-    <a href="{{ route('login') }}" class="btn-login">ورود به سیستم</a>
-    <a href="{{ route('pre-registration.form') }}" class="btn-pre-registration.form">فرم پیش‌نام</a>
-</div>
+                <div class="col-lg-3 col-4 text-center text-lg-end">
+                    <img src="{{ asset('storage/images/logo-right.png') }}" alt="لوگو" loading="lazy" style="max-height: 82px;">
+                </div>
             </div>
         </div>
     </div>
 
-    <nav class="main-menu">
+    <!-- Navigation - بهینه و سریع -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <div class="container">
-            <ul>
-                <li><a href="/" class="{{ request()->is('/') ? 'active' : '' }}">صفحه اصلی</a></li>
-                <li><a href="#">تماس با ما</a></li>
-                <li><a href="#">گالری تصاویر</a></li>
-                <li><a href="#">همایش ها و رویدادها</a></li>
-                <li><a href="#">دانش آموزان</a></li>
-                <li><a href="#">رشته ها و دوره ها</a></li>
-                <li><a href="#">امکانات و تجهیزات</a></li>
-                <li><a href="#">اخبار و اطلاعیه ها</a></li>
-                <li><a href="#">درباره هنرستان</a></li>
-            </ul>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ route('home') }}">صفحه اصلی</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">درباره ما</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('news.index') }}">اخبار</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('fields.index') }}">رشته‌ها</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('conference.index') }}">همایش</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">تماس</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 </header>
-
-<!-- Hero Banner - فقط صفحه اصلی -->
-@if(request()->is('/'))
-<section class="hero-banner">
-    <img src="{{ asset('storage/images/hero-main.jpg') }}" alt="هنرستان هزاره صنعت">
-    <div class="hero-overlay">
-        <div class="container">
-            <h2>مرکز تربیت نیروی متخصص برای صنعت ایران</h2>
-            <p>آموزش مهارت‌محور، کارگاهی و صنعتی همگام با نیاز صنایع روز</p>
-            <a href="{{ route('pre-registration.form') }}" class="hero-btn">ثبت‌نام آنلاین</a>
-        </div>
-    </div>
-</section>
-@endif

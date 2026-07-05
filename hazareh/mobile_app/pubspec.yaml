@@ -1,0 +1,32 @@
+name: hazareh_sanat_app
+description: اپلیکیشن موبایل هنرستان هزاره صنعت
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  http: ^1.2.0                  # ارتباط با REST API
+  shared_preferences: ^2.2.2    # ذخیره توکن ورود
+  provider: ^6.1.1              # مدیریت state
+  google_fonts: ^6.1.0          # فونت وزیرمتن
+  intl: ^0.19.0                 # فرمت تاریخ
+  shamsi_date: ^1.0.4           # تبدیل تاریخ شمسی
+  flutter_svg: ^2.0.9
+  cached_network_image: ^3.3.1
+  url_launcher: ^6.2.4          # بازکردن نقشه/تماس
+  file_picker: ^6.1.1           # آپلود مدارک (پیش‌ثبت‌نام)
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/

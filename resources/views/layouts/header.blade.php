@@ -1,63 +1,47 @@
-<header class="top-header">
+<header class="site-header">
 
-    <div class="top-bar">
+    <div class="header-top">
         <div class="container">
 
-            <div class="top-right">
-                <i class="ti ti-map-pin"></i>
-                شهرستان چوار - استان ایلام
+            <div>
+                <small>اولین هنرستان جوار صنعت غرب کشور</small>
             </div>
 
-            <div class="top-left">
-
-                @guest
-                    <a href="{{ route('login') }}">
-                        <i class="ti ti-login"></i>
-                        ورود
-                    </a>
-
-                    <a href="{{ route('pre-register') }}">
-                        <i class="ti ti-user-plus"></i>
-                        پیش ثبت نام
-                    </a>
-                @endguest
-
-                @auth
-                    <a href="{{ route('panel.index') }}">
-                        <i class="ti ti-user"></i>
-                        پنل کاربری
-                    </a>
-
-                    <a href="{{ route('logout') }}"
-                       onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                        خروج
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                        @csrf
-                    </form>
-                @endauth
-
+            <div>
+                <small>{{ verta()->format('Y/m/d') }}</small>
             </div>
 
         </div>
     </div>
 
-    <div class="header-banner">
+    <div class="header-middle">
 
-        <div class="container banner-container">
+        <div class="container">
 
             <div class="logo-right">
+
+                <img src="{{ asset('images/logos/moe-logo.png') }}" alt="">
+
                 <img src="{{ asset('images/logos/hazareh-logo.png') }}" alt="">
+
             </div>
 
             <div class="header-title">
+
                 <h1>هنرستان هزاره صنعت</h1>
+
                 <h2>اولین هنرستان جوار صنعت غرب کشور</h2>
+
             </div>
 
             <div class="logo-left">
-                <img src="{{ asset('images/logos/moe-logo.png') }}" alt="">
+
+                <img src="{{ asset('images/logos/petrochemical-logo.png') }}" alt="">
+
+                <img src="{{ asset('images/logos/refinery-logo.png') }}" alt="">
+
+                <img src="{{ asset('images/logos/tvto-logo.png') }}" alt="">
+
             </div>
 
         </div>
@@ -72,19 +56,58 @@
 
                 <li><a href="{{ route('home') }}">صفحه اصلی</a></li>
 
-                <li><a href="{{ route('about') }}">درباره هنرستان</a></li>
+                <li>
+                    <a href="{{ route('about') }}">درباره هنرستان</a>
 
-                <li><a href="{{ route('fields.index') }}">رشته‌ها</a></li>
+                    <ul>
 
-                <li><a href="{{ route('news.index') }}">اخبار</a></li>
+                        <li><a href="{{ route('about') }}">معرفی</a></li>
 
-                <li><a href="{{ route('announcements.index') }}">اطلاعیه‌ها</a></li>
+                        <li><a href="{{ route('about.goals') }}">اهداف</a></li>
 
-                <li><a href="{{ route('conference.index') }}">همایش</a></li>
+                        <li><a href="{{ route('about.facilities') }}">امکانات</a></li>
 
-                <li><a href="{{ route('counseling.form') }}">مشاوره</a></li>
+                        <li><a href="{{ route('staff.teaching') }}">کادر آموزشی</a></li>
 
-                <li><a href="{{ route('contact') }}">تماس با ما</a></li>
+                        <li><a href="{{ route('staff.executive') }}">کادر اجرایی</a></li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a href="{{ route('fields.index') }}">رشته‌ها</a>
+                </li>
+
+                <li>
+                    <a href="{{ route('news.index') }}">اخبار</a>
+                </li>
+
+                <li>
+                    <a href="{{ route('conference.index') }}">همایش</a>
+                </li>
+
+                <li>
+                    <a href="{{ route('contact') }}">تماس با ما</a>
+                </li>
+
+                @auth
+
+                <li>
+
+                    <a href="{{ route('panel.index') }}">پنل کاربری</a>
+
+                </li>
+
+                @else
+
+                <li>
+
+                    <a href="{{ route('login') }}">ورود</a>
+
+                </li>
+
+                @endauth
 
             </ul>
 
